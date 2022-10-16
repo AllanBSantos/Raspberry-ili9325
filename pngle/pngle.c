@@ -114,7 +114,8 @@ pngle_t *pngle_new(uint16_t width, uint16_t height)
         //ret = ESP_ERR_NO_MEM;
         goto err;
     }
-    for (int i = 0; i < height; i++) {
+	int i;
+    for (i = 0; i < height; i++) {
         (pngle->pixels)[i] = malloc(width * sizeof(pixel_png));
         if ((pngle->pixels)[i] == NULL) {
             printf("Error allocating memory for line %d", i);
@@ -130,7 +131,8 @@ pngle_t *pngle_new(uint16_t width, uint16_t height)
     err:
     //Something went wrong! Exit cleanly, de-allocating everything we allocated.
     if (pngle->pixels != NULL) {
-        for (int i = 0; i < height; i++) {
+		int i;
+        for (i = 0; i < height; i++) {
             free((pngle->pixels)[i]);
         }
         free(pngle->pixels);
@@ -142,7 +144,8 @@ void pngle_destroy(pngle_t *pngle, uint16_t width, uint16_t height)
 {
 	if (pngle) {
     	if (pngle->pixels != NULL) {
-       		for (int i = 0; i < height; i++) {
+			int i;
+       		for (i = 0; i < height; i++) {
             	free((pngle->pixels)[i]);
        		}
         	free(pngle->pixels);
@@ -284,7 +287,8 @@ static int pngle_draw_pixels(pngle_t *pngle, size_t scanline_ringbuf_xidx)
 
 #ifndef PNGLE_NO_GAMMA_CORRECTION
 			if (pngle->gamma_table) {
-				for (int i = 0; i < 3; i++) {
+				int i;
+				for (i = 0; i < 3; i++) {
 					rgba[i] = pngle->gamma_table[v[i]];
 				}
 			}
@@ -349,8 +353,8 @@ static int setup_gamma_table(pngle_t *pngle, uint32_t png_gamma)
 
 	pngle->gamma_table = PNGLE_CALLOC(1, maxval + 1, "gamma table");
 	if (!pngle->gamma_table) return PNGLE_ERROR("Insufficient memory");
-
-	for (int i = 0; i < maxval + 1; i++) {
+	int i;
+	for (i = 0; i < maxval + 1; i++) {
 		pngle->gamma_table[i] = (uint8_t)floor(pow(i / (double)maxval, 100000.0 / png_gamma / pngle->display_gamma) * 255.0 + 0.5);
 	}
 	debug_printf("[pngle] gamma value = %d\n", png_gamma);

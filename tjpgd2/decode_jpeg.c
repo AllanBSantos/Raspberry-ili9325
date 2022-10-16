@@ -61,9 +61,10 @@ static int outfunc(JDEC *decoder, void *bitmap, JRECT *rect) {
 	if (_DEBUG_) printf("rect->top=%d rect->bottom=%d\n", rect->top, rect->bottom);
 	if (_DEBUG_) printf("rect->left=%d rect->right=%d\n", rect->left, rect->right);
 	if (_DEBUG_) printf("jd->screenWidth=%d jd->screenHeight=%d\n", jd->screenWidth, jd->screenHeight);
-
-	for (int y = rect->top; y <= rect->bottom; y++) {
-		for (int x = rect->left; x <= rect->right; x++) {
+	int y;
+	for (y = rect->top; y <= rect->bottom; y++) {
+		int x;
+		for (x = rect->left; x <= rect->right; x++) {
 
 			if (y < jd->screenHeight && x < jd->screenWidth) {
 				jd->outData[y][x].red = in[0];
@@ -118,7 +119,8 @@ uint16_t decode_image(pixel_s ***pixels, char * file, uint16_t width, uint16_t h
 		ret = ESP_ERR_NO_MEM;
 		goto err;
 	}
-	for (int i = 0; i < height; i++) {
+	int i;
+	for (i = 0; i < height; i++) {
 		(*pixels)[i] = malloc(width * sizeof(pixel_s));
 		if ((*pixels)[i] == NULL) {
 			printf("Error allocating memory for line %d\n", i);
@@ -186,7 +188,8 @@ uint16_t decode_image(pixel_s ***pixels, char * file, uint16_t width, uint16_t h
 	err:
 	//Something went wrong! Exit cleanly, de-allocating everything we allocated.
 	if (*pixels != NULL) {
-		for (int i = 0; i < height; i++) {
+		int i;
+		for (i = 0; i < height; i++) {
 			free((*pixels)[i]);
 		}
 		free(*pixels);
@@ -198,7 +201,8 @@ uint16_t decode_image(pixel_s ***pixels, char * file, uint16_t width, uint16_t h
 
 uint16_t release_image(pixel_s ***pixels, uint16_t width, uint16_t height) {
 	if (*pixels != NULL) {
-		for (int i = 0; i < height; i++) {
+		int i;
+		for (i = 0; i < height; i++) {
 			free((*pixels)[i]);
 		}
 		free(*pixels);
