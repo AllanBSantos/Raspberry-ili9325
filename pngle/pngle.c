@@ -184,8 +184,8 @@ pngle_ihdr_t *pngle_get_ihdr(pngle_t *pngle)
 static int is_trans_color(pngle_t *pngle, uint16_t *value, size_t n)
 {
 	if (pngle->n_trans_palettes != 1) return 0; // false (none or indexed)
-
-	for (size_t i = 0; i < n; i++) {
+	size_t i;
+	for (i = 0; i < n; i++) {
 		if (value[i] != (pngle->trans_palette[i * 2 + 0] * 0x100 + pngle->trans_palette[i * 2 + 1])) return 0; // false
 	}
 	return 1; // true
@@ -241,7 +241,8 @@ static int pngle_draw_pixels(pngle_t *pngle, size_t scanline_ringbuf_xidx)
 	int n_pixels = pngle->hdr.depth == 16 ? 1 : (8 / pngle->hdr.depth);
 
 	for (; n_pixels-- > 0 && pngle->drawing_x < pngle->hdr.width; pngle->drawing_x = U32_CLAMP_ADD(pngle->drawing_x, interlace_div_x[pngle->interlace_pass], pngle->hdr.width)) {
-		for (uint_fast8_t c = 0; c < pngle->channels; c++) {
+		uint_fast8_t c;
+		for (c = 0; c < pngle->channels; c++) {
 			v[c] = get_value(pngle, &scanline_ringbuf_xidx, &bitcount, pngle->hdr.depth);
 		}
 
@@ -399,7 +400,8 @@ static int pngle_on_data(pngle_t *pngle, const uint8_t *p, int len)
 			pngle->filter_type = (int_fast8_t)*p++; // 0 - 4
 
 			// push sentinel bytes for new line
-			for (uint_fast8_t i = 0; i < bytes_per_pixel; i++) {
+			uint_fast8_t i;
+			for (i = 0; i < bytes_per_pixel; i++) {
 				scanline_ringbuf_push(pngle, 0);
 			}
 
