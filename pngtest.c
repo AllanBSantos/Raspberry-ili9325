@@ -110,8 +110,10 @@ time_t PNGTest(TFT_t * dev, char * file, int width, int height) {
 	uint16_t *colors = (uint16_t*)malloc(sizeof(uint16_t) * pngWidth);
 
 	int ypos = (height-1) - offsetY;
-	for(int y = 0; y < pngHeight; y++){
-		for(int x = 0;x < pngWidth; x++){
+	int y;
+	for(y = 0; y < pngHeight; y++){
+		int x;
+		for(x = 0;x < pngWidth; x++){
 			pixel_png pixel = pngle->pixels[y][x];
 			uint16_t color = rgb565_conv(pixel.red, pixel.green, pixel.blue);
 			//lcdDrawPixel(dev, x+offsetX, y+offsetY, color);

@@ -94,9 +94,10 @@ void ili9341_lcdDrawFillRect(TFT_t *dev, uint16_t x1, uint16_t y1, uint16_t x2, 
 	lcdWriteDataWord(dev, _y1);
 	lcdWriteDataWord(dev, _y2);
 	lcdWriteCommandByte(dev, 0x2C); // Memory Write
-
-	for(int i=_x1;i<=_x2;i++){
-		for(int j=_y1;j<=_y2;j++){
+	int i;
+	for(i=_x1;i<=_x2;i++){
+		int j;
+		for(j=_y1;j<=_y2;j++){
 #ifndef P16BIT
 			lcdWriteDataWord(dev, color);
 #else
