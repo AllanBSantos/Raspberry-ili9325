@@ -112,12 +112,13 @@ void ili9325_lcdDrawFillRect(TFT_t *dev, uint16_t x1, uint16_t y1, uint16_t x2, 
 	uint16_t _x2 = x2 + dev->_offsetx;
 	uint16_t _y1 = y1 + dev->_offsety;
 	uint16_t _y2 = y2 + dev->_offsety;
-
-	for(int _y=_y1;_y<=_y2;_y++){
+	int _y;
+	for(_y=_y1;_y<=_y2;_y++){
 		lcdWriteRegisterWord(dev, 0x0020, _x1); // RAM Address Set 1
 		lcdWriteRegisterWord(dev, 0x0021, _y); // RAM Address Set 2
 		lcdWriteCommandWord(dev, 0x0022); // Write Data to GRAM
-		for(int _x=_x1;_x<=_x2;_x++){
+		int _x;
+		for(_x=_x1;_x<=_x2;_x++){
 			lcdWriteDataWord(dev, color); // Write Data to GRAM
 		}
 	}
