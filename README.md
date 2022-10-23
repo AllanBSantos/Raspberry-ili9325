@@ -347,4 +347,3 @@ This can reduce the image to any size.
 # test fork
 sudo midprobe fbtf_device custom name=fb_ili9488 gpios=rest:1,dc:0, led:3 speed=48000000 fps=25 rotate=180 bgr=1
 
-
