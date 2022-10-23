@@ -7,7 +7,8 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/stat.h>
-#include <wiringPi.h>
+//#include <wiringPi.h>
+#include "../../wiringOP/wiringPi/wiringPi.h"
 
 #include "tft_lib.h"
 
