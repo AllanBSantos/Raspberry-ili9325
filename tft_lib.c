@@ -16,16 +16,16 @@ void lcdDelay(int ms) {
 }
 
 void lcdWriteByte(TFT_t *dev, uint8_t data) {
-  printf("---------- lcdWriteByte -------- \n ")		
-  printf("dev->pins.d0 ===== %d \n ", dev->pins.d0)		
-  printf("dev->pins.d1 ===== %d \n ", dev->pins.d1)		
-  printf("dev->pins.d2 ===== %d \n ", dev->pins.d2)		
-  printf("dev->pins.d3 ===== %d \n ", dev->pins.d3)		
-  printf("dev->pins.d4 ===== %d \n ", dev->pins.d4)		
-  printf("dev->pins.d5 ===== %d \n ", dev->pins.d5)		
-  printf("dev->pins.d6 ===== %d \n ", dev->pins.d6)		
-  printf("dev->pins.d7 ===== %d \n ", dev->pins.d7)		
-  printf("dev->pins.wr ===== %d \n ", dev->pins.wr)		
+  printf("---------- lcdWriteByte -------- \n ");		
+  printf("dev->pins.d0 ===== %d \n ", dev->pins.d0);		
+  printf("dev->pins.d1 ===== %d \n ", dev->pins.d1);		
+  printf("dev->pins.d2 ===== %d \n ", dev->pins.d2);		
+  printf("dev->pins.d3 ===== %d \n ", dev->pins.d3);		
+  printf("dev->pins.d4 ===== %d \n ", dev->pins.d4);		
+  printf("dev->pins.d5 ===== %d \n ", dev->pins.d5);		
+  printf("dev->pins.d6 ===== %d \n ", dev->pins.d6);		
+  printf("dev->pins.d7 ===== %d \n ", dev->pins.d7);		
+  printf("dev->pins.wr ===== %d \n ", dev->pins.wr);		
   digitalWrite(dev->pins.d0, data & 1);
   digitalWrite(dev->pins.d1, (data & 2) >> 1);
   digitalWrite(dev->pins.d2, (data & 4) >> 2);
@@ -41,24 +41,24 @@ void lcdWriteByte(TFT_t *dev, uint8_t data) {
 }
 
 void lcdWriteWord(TFT_t *dev, uint16_t data) {
-	  printf("---------- lcdWriteWord -------- \n ")		
-  printf("dev->pins.d0 ===== %d \n ", dev->pins.d0)		
-  printf("dev->pins.d1 ===== %d \n ", dev->pins.d1)		
-  printf("dev->pins.d2 ===== %d \n ", dev->pins.d2)		
-  printf("dev->pins.d3 ===== %d \n ", dev->pins.d3)		
-  printf("dev->pins.d4 ===== %d \n ", dev->pins.d4)		
-  printf("dev->pins.d5 ===== %d \n ", dev->pins.d5)		
-  printf("dev->pins.d6 ===== %d \n ", dev->pins.d6)		
-  printf("dev->pins.d7 ===== %d \n ", dev->pins.d7)		
-  printf("dev->pins.d8 ===== %d \n ", dev->pins.d8)		
-  printf("dev->pins.d9 ===== %d \n ", dev->pins.d9)		
-  printf("dev->pins.d10 ===== %d \n ", dev->pins.d10)		
-  printf("dev->pins.d11 ===== %d \n ", dev->pins.d11)		
-  printf("dev->pins.d12 ===== %d \n ", dev->pins.d12)		
-  printf("dev->pins.d13 ===== %d \n ", dev->pins.d13)		
-  printf("dev->pins.d14 ===== %d \n ", dev->pins.d14)		
-  printf("dev->pins.d15 ===== %d \n ", dev->pins.d15)		
-  printf("dev->pins.wr ===== %d \n ", dev->pins.wr)		
+	  printf("---------- lcdWriteWord -------- \n ");		
+  printf("dev->pins.d0 ===== %d \n ", dev->pins.d0);		
+  printf("dev->pins.d1 ===== %d \n ", dev->pins.d1);		
+  printf("dev->pins.d2 ===== %d \n ", dev->pins.d2);		
+  printf("dev->pins.d3 ===== %d \n ", dev->pins.d3);		
+  printf("dev->pins.d4 ===== %d \n ", dev->pins.d4);		
+  printf("dev->pins.d5 ===== %d \n ", dev->pins.d5);		
+  printf("dev->pins.d6 ===== %d \n ", dev->pins.d6);		
+  printf("dev->pins.d7 ===== %d \n ", dev->pins.d7);		
+  printf("dev->pins.d8 ===== %d \n ", dev->pins.d8);		
+  printf("dev->pins.d9 ===== %d \n ", dev->pins.d9);		
+  printf("dev->pins.d10 ===== %d \n ", dev->pins.d10);		
+  printf("dev->pins.d11 ===== %d \n ", dev->pins.d11);		
+  printf("dev->pins.d12 ===== %d \n ", dev->pins.d12);		
+  printf("dev->pins.d13 ===== %d \n ", dev->pins.d13);		
+  printf("dev->pins.d14 ===== %d \n ", dev->pins.d14);		
+  printf("dev->pins.d15 ===== %d \n ", dev->pins.d15);		
+  printf("dev->pins.wr ===== %d \n ", dev->pins.wr)	;	
   digitalWrite(dev->pins.d0, data & 1);
   digitalWrite(dev->pins.d1, (data & 2) >> 1);
   digitalWrite(dev->pins.d2, (data & 4) >> 2);
@@ -83,11 +83,11 @@ void lcdWriteWord(TFT_t *dev, uint16_t data) {
 
 
 void lcdWriteDataWord(TFT_t *dev, uint16_t data) {
-  printf("---------- lcdWriteDataWord -------- \n ")			
-  printf("dev->pins.cs ===== %d \n ", dev->pins.cs)	
-  printf("dev->pins.rs ===== %d \n ", dev->pins.rs)	
-  printf("dev->pins.rd ===== %d \n ", dev->pins.rd)	
-  printf("dev->pins.wr ===== %d \n ", dev->pins.wr)	
+  printf("---------- lcdWriteDataWord -------- \n ");			
+  printf("dev->pins.cs ===== %d \n ", dev->pins.cs);
+  printf("dev->pins.rs ===== %d \n ", dev->pins.rs);	
+  printf("dev->pins.rd ===== %d \n ", dev->pins.rd);	
+  printf("dev->pins.wr ===== %d \n ", dev->pins.wr);	
   digitalWrite(dev->pins.cs, LOW);
   digitalWrite(dev->pins.rs, HIGH);
   digitalWrite(dev->pins.rd, HIGH);
@@ -102,11 +102,11 @@ void lcdWriteDataWord(TFT_t *dev, uint16_t data) {
 // It's effective only at color data.
 // Many thanks for myg3nx
 void lcdWriteDataWord_16bit(TFT_t *dev, uint16_t data) {
-	  printf("---------- lcdWriteDataWord_16bit -------- \n ")			
-  printf("dev->pins.cs ===== %d \n ", dev->pins.cs)	
-  printf("dev->pins.rs ===== %d \n ", dev->pins.rs)	
-  printf("dev->pins.rd ===== %d \n ", dev->pins.rd)	
-  printf("dev->pins.wr ===== %d \n ", dev->pins.wr)	
+	  printf("---------- lcdWriteDataWord_16bit -------- \n ");			
+  printf("dev->pins.cs ===== %d \n ", dev->pins.cs);	
+  printf("dev->pins.rs ===== %d \n ", dev->pins.rs);	
+  printf("dev->pins.rd ===== %d \n ", dev->pins.rd);	
+  printf("dev->pins.wr ===== %d \n ", dev->pins.wr);	
   digitalWrite(dev->pins.cs, LOW);
   digitalWrite(dev->pins.rs, HIGH);
   digitalWrite(dev->pins.rd, HIGH);
@@ -116,11 +116,11 @@ void lcdWriteDataWord_16bit(TFT_t *dev, uint16_t data) {
 }
 
 void lcdWriteDataByte(TFT_t *dev, uint8_t data) {
-  printf("---------- lcdWriteDataByte -------- \n ")			
-  printf("dev->pins.cs ===== %d \n ", dev->pins.cs)	
-  printf("dev->pins.rs ===== %d \n ", dev->pins.rs)	
-  printf("dev->pins.rd ===== %d \n ", dev->pins.rd)	
-  printf("dev->pins.wr ===== %d \n ", dev->pins.wr)	
+  printf("---------- lcdWriteDataByte -------- \n ");			
+  printf("dev->pins.cs ===== %d \n ", dev->pins.cs);	
+  printf("dev->pins.rs ===== %d \n ", dev->pins.rs);	
+  printf("dev->pins.rd ===== %d \n ", dev->pins.rd);	
+  printf("dev->pins.wr ===== %d \n ", dev->pins.wr);	
   digitalWrite(dev->pins.cs, LOW);
   digitalWrite(dev->pins.rs, HIGH);
   digitalWrite(dev->pins.rd, HIGH);
@@ -130,11 +130,11 @@ void lcdWriteDataByte(TFT_t *dev, uint8_t data) {
 }
 
 void lcdWriteCommandWord(TFT_t *dev, uint16_t command) {
-  printf("---------- lcdWriteCommandWord -------- \n ")			
-  printf("dev->pins.cs ===== %d \n ", dev->pins.cs)	
-  printf("dev->pins.rs ===== %d \n ", dev->pins.rs)	
-  printf("dev->pins.rd ===== %d \n ", dev->pins.rd)	
-  printf("dev->pins.wr ===== %d \n ", dev->pins.wr)	
+  printf("---------- lcdWriteCommandWord -------- \n ");			
+  printf("dev->pins.cs ===== %d \n ", dev->pins.cs);	
+  printf("dev->pins.rs ===== %d \n ", dev->pins.rs);	
+  printf("dev->pins.rd ===== %d \n ", dev->pins.rd);	
+  printf("dev->pins.wr ===== %d \n ", dev->pins.wr);	
   digitalWrite(dev->pins.cs, LOW);
   digitalWrite(dev->pins.rs, LOW);
   digitalWrite(dev->pins.rd, HIGH);
@@ -145,11 +145,11 @@ void lcdWriteCommandWord(TFT_t *dev, uint16_t command) {
 }
 
 void lcdWriteCommandByte(TFT_t *dev, uint8_t command) {
-  printf("---------- lcdWriteCommandByte -------- \n ")			
-  printf("dev->pins.cs ===== %d \n ", dev->pins.cs)	
-  printf("dev->pins.rs ===== %d \n ", dev->pins.rs)	
-  printf("dev->pins.rd ===== %d \n ", dev->pins.rd)	
-  printf("dev->pins.wr ===== %d \n ", dev->pins.wr)	
+  printf("---------- lcdWriteCommandByte -------- \n ");			
+  printf("dev->pins.cs ===== %d \n ", dev->pins.cs);	
+  printf("dev->pins.rs ===== %d \n ", dev->pins.rs);	
+  printf("dev->pins.rd ===== %d \n ", dev->pins.rd);	
+  printf("dev->pins.wr ===== %d \n ", dev->pins.wr);	
   digitalWrite(dev->pins.cs, LOW);
   digitalWrite(dev->pins.rs, LOW);
   digitalWrite(dev->pins.rd, HIGH);
@@ -197,12 +197,12 @@ void lcdInterface(TFT_t *dev, char* ppath) {
 	if(_DEBUG_)printf("d8=%d d9=%d d10=%d d11=%d d12=%d d13=%d d14=%d d15=%d\n",
 		dev->pins.d8, dev->pins.d9, dev->pins.d10, dev->pins.d11, dev->pins.d12, dev->pins.d13, dev->pins.d14, dev->pins.d15);
 #endif
-  printf("---------- lcdInterface -------- \n ")			
-  printf("dev->pins.cs ===== %d \n ", dev->pins.cs)	
-  printf("dev->pins.rs ===== %d \n ", dev->pins.rs)	
-  printf("dev->pins.rd ===== %d \n ", dev->pins.rd)	
-  printf("dev->pins.wr ===== %d \n ", dev->pins.wr)	
-  printf("dev->pins.rst ===== %d \n ", dev->pins.rst)	
+  printf("---------- lcdInterface -------- \n ");			
+  printf("dev->pins.cs ===== %d \n ", dev->pins.cs);	
+  printf("dev->pins.rs ===== %d \n ", dev->pins.rs);
+  printf("dev->pins.rd ===== %d \n ", dev->pins.rd);	
+  printf("dev->pins.wr ===== %d \n ", dev->pins.wr);	
+  printf("dev->pins.rst ===== %d \n ", dev->pins.rst);	
 
 	pinMode(dev->pins.cs, OUTPUT);
 	digitalWrite(dev->pins.cs, HIGH);
@@ -235,8 +235,8 @@ void lcdInterface(TFT_t *dev, char* ppath) {
 }
 
 void lcdReset(TFT_t *dev) {
-			  printf("---------- lcdReset -------- \n ")			
-  printf("dev->pins.rst ===== %d \n ", dev->pins.rst)	
+			  printf("---------- lcdReset -------- \n ");			
+  printf("dev->pins.rst ===== %d \n ", dev->pins.rst);	
   digitalWrite(dev->pins.rst, HIGH);
   delay(100); 
   digitalWrite(dev->pins.rst, LOW);
