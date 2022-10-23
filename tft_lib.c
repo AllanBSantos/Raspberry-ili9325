@@ -16,148 +16,51 @@ void lcdDelay(int ms) {
 }
 
 void lcdWriteByte(TFT_t *dev, uint8_t data) {
-	if(dev->pins.d0 == -1){
-  printf("debuging --------> 1");
-	}
   digitalWrite(dev->pins.d0, data & 1);
-    	if(dev->pins.d1 == -1){
-  printf("debuging --------> 2");
-	}
   digitalWrite(dev->pins.d1, (data & 2) >> 1);
-   	if(dev->pins.d3 == -1){
-  printf("debuging --------> 3");
-	}
   digitalWrite(dev->pins.d2, (data & 4) >> 2);
-	if(dev->pins.d3 == -1){
-  printf("debuging --------> 4");
-	}
   digitalWrite(dev->pins.d3, (data & 8) >> 3);
-    	if(dev->pins.d4 == -1){
-  printf("debuging --------> 5");
-	}
   digitalWrite(dev->pins.d4, (data & 16) >> 4); 
-   	if(dev->pins.d5 == -1){
-  printf("debuging --------> 6");
-	}
   digitalWrite(dev->pins.d5, (data & 32) >> 5);
-   	if(dev->pins.d6 == -1){
-  printf("debuging --------> 7");
-	}
   digitalWrite(dev->pins.d6, (data & 64) >> 6);
-    	if(dev->pins.d7 == -1){
-  printf("debuging --------> 8");
-	}
   digitalWrite(dev->pins.d7, (data & 128) >> 7);  
-    	if(dev->pins.wr == -1){
-  printf("debuging --------> 9");
-	}
+
   digitalWrite(dev->pins.wr, LOW);
   //delayMicroseconds(10);
-    	if(dev->pins.wr == -1){
-  printf("debuging --------> 10");
-	}
   digitalWrite(dev->pins.wr, HIGH);
 }
 
 void lcdWriteWord(TFT_t *dev, uint16_t data) {
-	 	if(dev->pins.d0 == -1){
-  printf("debuging --------> 11");
-	}
   digitalWrite(dev->pins.d0, data & 1);
-    	if(dev->pins.d1 == -1){
-  printf("debuging --------> 12");
-	}
   digitalWrite(dev->pins.d1, (data & 2) >> 1);
-   	if(dev->pins.d2 == -1){
-  printf("debuging --------> 13");
-	}
   digitalWrite(dev->pins.d2, (data & 4) >> 2);
-    	if(dev->pins.d3 == -1){
-  printf("debuging --------> 14");
-	}
   digitalWrite(dev->pins.d3, (data & 8) >> 3);
-    	if(dev->pins.d4 == -1){
-  printf("debuging --------> 15");
-	}
   digitalWrite(dev->pins.d4, (data & 16) >> 4);
-    	if(dev->pins.d5 == -1){
-  printf("debuging --------> 16");
-	}
   digitalWrite(dev->pins.d5, (data & 32) >> 5);
-   	if(dev->pins.d6 == -1){
-  printf("debuging --------> 17");
-	}
   digitalWrite(dev->pins.d6, (data & 64) >> 6);
-   	if(dev->pins.d7 == -1){
-  printf("debuging --------> 18");
-	}
   digitalWrite(dev->pins.d7, (data & 128) >> 7);
-    	if(dev->pins.d8 == -1){
-  printf("debuging --------> 19");
-	}
   digitalWrite(dev->pins.d8, (data & 256) >> 8);
-   	if(dev->pins.d9 == -1){
-  printf("debuging --------> 20");
-	}
   digitalWrite(dev->pins.d9, (data & 512) >> 9);
-    	if(dev->pins.d10 == -1){
-  printf("debuging --------> 21");
-	}
   digitalWrite(dev->pins.d10, (data & 1024) >> 10);
-   	if(dev->pins.d11 == -1){
-  printf("debuging --------> 22");
-	}
   digitalWrite(dev->pins.d11, (data & 2048) >> 11);
-    	if(dev->pins.d12 == -1){
-  printf("debuging --------> 23");
-	}
   digitalWrite(dev->pins.d12, (data & 4096) >> 12);
-   	if(dev->pins.d13 == -1){
-  printf("debuging --------> 24");
-	}
   digitalWrite(dev->pins.d13, (data & 8192) >> 13);
-    	if(dev->pins.d14 == -1){
-  printf("debuging --------> 25");
-	}
   digitalWrite(dev->pins.d14, (data & 16384) >> 14);
- 	if(dev->pins.d15 == -1){
-  printf("debuging --------> 26");
-	}
   digitalWrite(dev->pins.d15, (data & 32768) >> 15);
- 	if(dev->pins.wr == -1){
-  printf("debuging --------> 27");
-	}
+
   digitalWrite(dev->pins.wr, LOW);
   //delayMicroseconds(10);
-    	if(dev->pins.wr == -1){
-  printf("debuging --------> 28");
-	}
   digitalWrite(dev->pins.wr, HIGH);
 }
 
 
 void lcdWriteDataWord(TFT_t *dev, uint16_t data) {
-	  	if(dev->pins.cs == -1){
-  printf("debuging --------> 29");
-	}
   digitalWrite(dev->pins.cs, LOW);
-   	if(dev->pins.rs == -1){
-  printf("debuging --------> 30");
-	}
   digitalWrite(dev->pins.rs, HIGH);
-    	if(dev->pins.rd == -1){
-  printf("debuging --------> 31");
-	}
   digitalWrite(dev->pins.rd, HIGH);
-    	if(dev->pins.wr == -1){
-  printf("debuging --------> 32");
-	}
   digitalWrite(dev->pins.wr, HIGH);
   lcdWriteByte(dev, data >> 8);
   lcdWriteByte(dev, data);
- 	if(dev->pins.cs == -1){
-  printf("debuging --------> 34");
-	}
   digitalWrite(dev->pins.cs, HIGH);  
 }
 
@@ -166,99 +69,39 @@ void lcdWriteDataWord(TFT_t *dev, uint16_t data) {
 // It's effective only at color data.
 // Many thanks for myg3nx
 void lcdWriteDataWord_16bit(TFT_t *dev, uint16_t data) {
-		if(dev->pins.cs == -1){
-  printf("debuging --------> 35");
-	}
   digitalWrite(dev->pins.cs, LOW);
-	if(dev->pins.rs == -1){
-  printf("debuging --------> 36");
-	}
   digitalWrite(dev->pins.rs, HIGH);
-   	if(dev->pins.rd == -1){
-  printf("debuging --------> 37");
-	}
   digitalWrite(dev->pins.rd, HIGH);
-  	if(dev->pins.wr == -1){
-  printf("debuging --------> 38");
-	}
   digitalWrite(dev->pins.wr, HIGH);
   lcdWriteWord(dev, data);
-	if(dev->pins.cs == -1){
-  printf("debuging --------> 40");
-	}
   digitalWrite(dev->pins.cs, HIGH);
 }
 
 void lcdWriteDataByte(TFT_t *dev, uint8_t data) {
-	if(dev->pins.cs == -1){
-  printf("debuging --------> 41");
-	}
   digitalWrite(dev->pins.cs, LOW);
-	if(dev->pins.rs == -1){
-  printf("debuging --------> 42");
-	}
   digitalWrite(dev->pins.rs, HIGH);
-	if(dev->pins.rd == -1){
-  printf("debuging --------> 43");
-	}
   digitalWrite(dev->pins.rd, HIGH);
-	if(dev->pins.wr == -1){
-  printf("debuging --------> 44");
-	}
   digitalWrite(dev->pins.wr, HIGH);
   lcdWriteByte(dev, data);
-	if(dev->pins.cs == -1){
-  printf("debuging --------> 45");
-	}
   digitalWrite(dev->pins.cs, HIGH);  
 }
 
 void lcdWriteCommandWord(TFT_t *dev, uint16_t command) {
-	if(dev->pins.cs == -1){
-  printf("debuging --------> 46");
-	}
   digitalWrite(dev->pins.cs, LOW);
-  	if(dev->pins.rs == -1){
-  printf("debuging --------> 47");
-	}
   digitalWrite(dev->pins.rs, LOW);
-   	if(dev->pins.rd == -1){
-  printf("debuging --------> 48");
-	}
   digitalWrite(dev->pins.rd, HIGH);
-    	if(dev->pins.wr == -1){
-  printf("debuging --------> 49");
-	}
   digitalWrite(dev->pins.wr, HIGH);  
   lcdWriteByte(dev, command >> 8);
   lcdWriteByte(dev, command);
-  	if(dev->pins.cs == -1){
-  printf("debuging --------> 50");
-	}
   digitalWrite(dev->pins.cs, HIGH);    
 }
 
 void lcdWriteCommandByte(TFT_t *dev, uint8_t command) {
-	  	if(dev->pins.cs == -1){
-  printf("debuging --------> 51");
-	}
   digitalWrite(dev->pins.cs, LOW);
-	if(dev->pins.rs == -1){
-  printf("debuging --------> 52");
-	}
   digitalWrite(dev->pins.rs, LOW);
-    	if(dev->pins.rd == -1){
-  printf("debuging --------> 53");
-	}
   digitalWrite(dev->pins.rd, HIGH);
-   	if(dev->pins.wr == -1){
-  printf("debuging --------> 54");
-	}
   digitalWrite(dev->pins.wr, HIGH);
   lcdWriteByte(dev, command);
- 	if(dev->pins.cs == -1){
-  printf("debuging --------> 55");
-	}
   digitalWrite(dev->pins.cs, HIGH);    
 }
 
@@ -303,29 +146,14 @@ void lcdInterface(TFT_t *dev, char* ppath) {
 #endif
 
 	pinMode(dev->pins.cs, OUTPUT);
-	if(dev->pins.cs == -1){
-  printf("debuging --------> 56");
-	}
 	digitalWrite(dev->pins.cs, HIGH);
 	pinMode(dev->pins.rs, OUTPUT);
-	 	if(dev->pins.rs == -1){
-  printf("debuging --------> 57");
-	}
 	digitalWrite(dev->pins.rs, HIGH);
 	pinMode(dev->pins.wr, OUTPUT);
-	 	if(dev->pins.wr == -1){
-  printf("debuging --------> 58");
-	}
 	digitalWrite(dev->pins.wr, HIGH);
 	pinMode(dev->pins.rd, OUTPUT);
-		if(dev->pins.rd == -1){
-  printf("debuging --------> 59");
-	}
 	digitalWrite(dev->pins.rd, HIGH);
 	pinMode(dev->pins.rst, OUTPUT);
-	  	if(dev->pins.rst == -1){
-  printf("debuging --------> 60");
-	}
 	digitalWrite(dev->pins.rst, HIGH);
 
 	pinMode(dev->pins.d0, OUTPUT);
@@ -348,20 +176,10 @@ void lcdInterface(TFT_t *dev, char* ppath) {
 }
 
 void lcdReset(TFT_t *dev) {
-	 	  	if(dev->pins.rst == -1){
-  printf("debuging --------> 10");
-	}
   digitalWrite(dev->pins.rst, HIGH);
   delay(100); 
-	 	  	if(dev->pins.rst == -1){
-  printf("debuging --------> 62");
-	}
   digitalWrite(dev->pins.rst, LOW);
   delay(100); 
-	  	  	if(dev->pins.rst == -1){
-  printf("debuging --------> 63");
-	}
-
   digitalWrite(dev->pins.rst, HIGH);
   delay(100);
 }
