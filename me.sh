@@ -111,7 +111,6 @@ x2=$((x1+10))
 xs=$((xs+30))
 _echo "DrawFillRect,${x1},${y1},${x2},${y2},${color}"
 _echo "DrawUTF8String,G24,${xs},${ys},CPU Temp.,${color}"
-temp=`vcgencmd measure_temp | cut -d= -f2`
 xs=$((xs+20))
 _echo "SetFontUnderLine,${color}"
 _echo "DrawUTF8String,G24,${xs},${ys},${temp},${color}"
